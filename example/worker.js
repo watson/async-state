@@ -8,6 +8,7 @@ process.on('uncaughtException', function (err) {
     console.log('An error occurred outside of an HTTP request')
   }
 
+  console.log(err.stack)
   process.exit(1)
 })
 
