@@ -20,11 +20,11 @@ function AsyncState () {
   })
 
   function asyncFunctionInitialized () {
-    var result = {}
+    var data = {}
     for (var key in state) {
-      result[key] = state[key]
+      data[key] = state[key]
     }
-    return result
+    return data
   }
 
   function asyncCallbackBefore (context, data) {
