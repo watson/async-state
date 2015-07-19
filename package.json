@@ -1,6 +1,6 @@
 {
   "name": "async-state",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parse state across async callbacks",
   "main": "index.js",
   "directories": {
@@ -36,7 +36,7 @@
     "tape": "^4.0.1"
   },
   "coordinates": [
-    55.6876945,
-    12.5954686
+    55.68770139999999,
+    12.595566
   ]
 }
