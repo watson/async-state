@@ -5,7 +5,6 @@ module.exports = new AsyncState()
 function AsyncState () {
   var tracing
   var state = this
-  var noop = function () {}
 
   try {
     tracing = require('tracing')
@@ -16,8 +15,8 @@ function AsyncState () {
   tracing.addAsyncListener({
     'create': asyncFunctionInitialized,
     'before': asyncCallbackBefore,
-    'error': noop,
-    'after': noop
+    'error': function () {},
+    'after': asyncCallbackAfter
   })
 
   function asyncFunctionInitialized () {
@@ -31,6 +30,12 @@ function AsyncState () {
   function asyncCallbackBefore (context, data) {
     for (var key in data) {
       state[key] = data[key]
+    }
+  }
+
+  function asyncCallbackAfter (context, data) {
+    for (var key in state) {
+      delete state[key]
     }
   }
 }
