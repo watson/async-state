@@ -10,7 +10,7 @@ function AsyncState () {
   try {
     tracing = require('tracing')
   } catch (e) {
-    tracing = require('./tracing_polyfill.js')
+    tracing = require('./lib/tracing_polyfill.js')
   }
 
   tracing.addAsyncListener({
