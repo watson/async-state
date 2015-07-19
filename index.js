@@ -1,18 +1,13 @@
 'use strict'
 
+require('async-listener')
+
 module.exports = new AsyncState()
 
 function AsyncState () {
-  var tracing
   var state = this
 
-  try {
-    tracing = require('tracing')
-  } catch (e) {
-    tracing = require('./lib/tracing_polyfill.js')
-  }
-
-  tracing.addAsyncListener({
+  process.addAsyncListener({
     'create': asyncFunctionInitialized,
     'before': asyncCallbackBefore,
     'error': function () {},
