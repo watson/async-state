@@ -30,7 +30,8 @@ asyncState.foo = 'bar'
 ```
 
 This also works between files. For a more complex example, see the
-[example folder](https://github.com/watson/async-state/master/example).
+[example
+folder](https://github.com/watson/async-state/tree/master/example).
 
 ## Credits
 
