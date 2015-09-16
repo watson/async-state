@@ -2,6 +2,8 @@
 
 require('async-listener')
 
+var deepExtend = require('deep-extend')
+
 module.exports = new AsyncState()
 
 function AsyncState () {
@@ -19,20 +21,14 @@ function AsyncState () {
     // snapshot of it. The returned object will later be passed as the `data`
     // arg in the functions below.
 
-    var data = {}
-    for (var key in state) {
-      data[key] = state[key]
-    }
-    return data
+    return deepExtend({}, state)
   }
 
   function asyncCallbackBefore (context, data) {
     // We just returned from the event-loop: We'll now restore the state
     // previously saved by `asyncFunctionInitialized`.
 
-    for (var key in data) {
-      state[key] = data[key]
-    }
+    deepExtend(state, data)
   }
 
   function asyncCallbackAfter (context, data) {

@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/watson/async-state#readme",
   "dependencies": {
-    "async-listener": "^0.5.6"
+    "async-listener": "^0.5.6",
+    "deep-extend": "^0.4.0"
   },
   "devDependencies": {
     "standard": "^5.2.1",
