@@ -29,6 +29,39 @@ This also works between files. For a more complex example, see the
 [example
 folder](https://github.com/watson/async-state/tree/master/example).
 
+## Gotchas
+
+Only object references are copied across async bounderies. The content
+of the object is shared! I.e. the following will get you into trouble:
+
+```js
+var asyncState = require('async-state')()
+
+asyncState.obj = { foo: 'foo' }
+
+setTimeout(function () {
+  console.log(asyncState.obj.foo) // => bar
+}, 2000)
+
+// THIS IS BAD!
+asyncState.obj.foo = 'bar'
+```
+
+To solve that issue, implement your own cloning logic:
+
+```js
+var asyncState = require('async-state')()
+
+asyncState.obj = { foo: 'foo' }
+
+setTimeout(function () {
+  console.log(asyncState.obj.foo) // => foo
+}, 2000)
+
+// THIS IS GOOD :)
+asyncState.obj = { foo: 'bar' }
+```
+
 ## Credits
 
 Thanks to [Andreas Madsen](https://github.com/AndreasMadsen) for pointing me towards the `async_wrap` API.
