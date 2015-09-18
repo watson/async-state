@@ -1,7 +1,7 @@
 'use strict'
 
 var test = require('tape')
-var asyncState = require('./')
+var asyncState = require('./')()
 
 test('restore state', function (t) {
   t.plan(2)

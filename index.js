@@ -2,7 +2,9 @@
 
 require('async-listener')
 
-module.exports = new AsyncState()
+module.exports = function () {
+  return new AsyncState()
+}
 
 function AsyncState () {
   var state = this

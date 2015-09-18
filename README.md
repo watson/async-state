@@ -14,7 +14,7 @@ npm install async-state
 ## Usage
 
 ```js
-var asyncState = require('async-state')
+var asyncState = require('async-state')()
 
 asyncState.foo = 'foo'
 
