@@ -1,6 +1,6 @@
 'use strict'
 
-require('async-listener')
+if (!process.addAsyncListener) require('async-listener')
 
 module.exports = function () {
   return new AsyncState()
