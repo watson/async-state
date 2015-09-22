@@ -10,10 +10,10 @@ function AsyncState () {
   var state = this
 
   process.addAsyncListener({
-    'create': asyncFunctionInitialized,
-    'before': asyncCallbackBefore,
-    'error': function () {},
-    'after': asyncCallbackAfter
+    create: asyncFunctionInitialized,
+    before: asyncCallbackBefore,
+    error: function () {},
+    after: asyncCallbackAfter
   })
 
   function asyncFunctionInitialized () {
