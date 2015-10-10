@@ -2,6 +2,8 @@
 
 if (!process.addAsyncListener) require('async-listener')
 
+var noop = function () {}
+
 module.exports = function () {
   return new AsyncState()
 }
@@ -12,7 +14,7 @@ function AsyncState () {
   process.addAsyncListener({
     create: asyncFunctionInitialized,
     before: asyncCallbackBefore,
-    error: function () {},
+    error: noop,
     after: asyncCallbackAfter
   })
 
